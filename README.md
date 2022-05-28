@@ -14,7 +14,7 @@
 - Users can schedule e-mails to be sent out to their distribution lists
 - This is not actually intended to be used by anyone; I just created this to learn the stack
 
-# Notes
+# Stack Notes
 ## Spring Boot & Maven
 - Spring Boot offers sooooo many features that I've had to implement in my own custom `dotnet` libraries
 - Auto-JSON serialization is very nice
