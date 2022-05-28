@@ -1,3 +1,0 @@
-## mailgun API
-- API Key: 8d821f0c-cebf6c44
-- Domain Name: sandboxedb6cdc7cca34ce5bf9c7e5a90645457.mailgun.org
