@@ -4,12 +4,14 @@
 - *This is not actually intended to be used by anyone; I just created this to learn the stack*
 
 ## Project Objectives
-- The goal of this project is to gain experience building API's with a Java stack. Specifically, I want to learn how to use these tools/frameworks/languages
-    - Java
+- The goal of this project is to gain experience building API's with a Java stack
+- Tools used:
     - Java Spring Boot
+    - JDBC
     - PostgresSQL
         - Set up a PostgresSQL database on my personal computer
         - Create some basic tables and populate them via my *Super Mailer* API
+    - pgAdmin
     
 
 ## What does the Super Mailer API do?
