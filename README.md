@@ -1,5 +1,7 @@
 # super-mailer
-***NOTE:** I am using this README as a notebook as I learn new things so a lot of it is not directly related to this project*
+*NOTE*
+- *I am using this README as a notebook as I learn new things so a lot of it is not directly related to this project*
+- *This is not actually intended to be used by anyone; I just created this to learn the stack*
 
 ## Project Objectives
 - The goal of this project is to gain experience building API's with a Java stack. Specifically, I want to learn how to use these tools/frameworks/languages
@@ -8,11 +10,11 @@
     - PostgresSQL
         - Set up a PostgresSQL database on my personal computer
         - Create some basic tables and populate them via my *Super Mailer* API
+    
 
 ## What does the Super Mailer API do?
 - Allows users to manage small e-mail distribution lists
 - Users can schedule e-mails to be sent out to their distribution lists
-- This is not actually intended to be used by anyone; I just created this to learn the stack
 
 # Stack Notes
 ## Spring Boot & Maven
@@ -38,16 +40,25 @@
     <version>0.0.1-SNAPSHOT</version>
     ```
 
-## Postgres commands to remember
+## Postgres
+- [Initial setup guide](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) I followed
+
+### Launching
+- Start **Apache** Web Server
+    > net start
+    
+- Stop **Apache** Web Server (Run cmd/other terminal as administrator)
+    > TASKKILL /F /IM httpd.exe /T
+    
 - Open command-line tool:
-    `psql -U userName`
+    > psql -U postgres
 
 - Start Postgres server:
-    `pg_ctl -D "C:\Program Files\PostgreSQL\14\data" start`
+    > pg_ctl -D "C:\Program Files\PostgreSQL\14\data" start
 
 - Stop Postgres server:
-    `pg_ctl -D "C:\Program Files\PostgreSQL\14\data" stop`
+    > pg_ctl -D "C:\Program Files\PostgreSQL\14\data" stop
 
-- Stop Apache web server:
-    `TASKKILL /F /IM httpd.exe /T`
-    - *Note*: After doing this, you should be able to manually start the process again via the Services console, or via the 'net start' command
+### Meta-commands
+- List DB's and some meta info
+    > \list

@@ -33,3 +33,4 @@ build/
 .vscode/
 
 temp-env.txt
+src/main/resources/application.properties
