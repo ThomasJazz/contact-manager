@@ -18,5 +18,6 @@ public class MailschedulerApplication {
 	{
 		SpringApplication.run(MailschedulerApplication.class, args);
 		System.out.println("Web server launched successfully!");
+		String idJson = "[{\"id\":3}]";
 	}
 }
