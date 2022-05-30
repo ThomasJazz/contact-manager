@@ -2,6 +2,8 @@ package com.supermailer.mailscheduler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class MailschedulerApplication {
@@ -19,4 +21,14 @@ public class MailschedulerApplication {
 		SpringApplication.run(MailschedulerApplication.class, args);
 		System.out.println("Web server launched successfully!");
 	}
+
+	public static <T> T convertJsonToObject(String json, Class<T> type) throws JsonProcessingException
+    {
+		
+        ObjectMapper mapper = new ObjectMapper();
+
+        T obj = mapper.readValue(json, type);
+
+        return obj;
+    }
 }
