@@ -2,9 +2,7 @@ package com.supermailer.mailscheduler.userAccount;
 import org.springframework.web.bind.annotation.*;
 import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
-
 import java.sql.SQLException;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.supermailer.library.*;
 
@@ -40,7 +38,7 @@ public class AddUserAccountDriver
         String query = getAddUserQuery(account);
         
         // Execute query and get results in JSON string
-        String json = sql.getQueryJson(query);
+        String json = sql.getQueryJson(query).toJSONString();
         
         // Attempt to grab the returned ID from the JSON string
         try

@@ -30,6 +30,8 @@ public class UserAccount
     @JsonProperty("notes")
     public String notes;
 
+    public UserAccount(){}
+
     public UserAccount(String id, String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
     {
         this.id = id;

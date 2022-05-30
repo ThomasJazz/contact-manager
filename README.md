@@ -21,8 +21,10 @@
 # Stack Notes
 
 ## Spring Boot & Maven
-- Spring Boot offers sooooo many features that I've had to implement in my own custom `dotnet` libraries
-- Not sure how to
+- Spring Boot offers some cool features that I've had to implement in my own custom `dotnet` libraries
+- Not sure how to best organize files for related classes/objects... 
+    - Should API endpoint groups have their own folders for the related `@RestController`'s?
+    - Should utility libraries made for the project be in the library folder within the project? Or within the root directory?
 - Auto-JSON serialization for returns is very nice, but Deserializing from JSON -> CustomObjectType seems more difficult/not as built int?
     - I think there must be an easy way to do this since they auto-serialize returns, but as of 5/30 I have not found a 1-line solution for this (looking for `JsonConvert.Deserialize` equivalent)
 - Java String interpolation sucks (it doesn't exist)

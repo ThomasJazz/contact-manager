@@ -45,7 +45,7 @@ public class SqlConnector
      * @return
      * @throws SQLException
      */
-    public String getQueryJson(String query) throws SQLException
+    public JSONArray getQueryJson(String query) throws SQLException
     {
         JSONArray json = new JSONArray();
 
@@ -75,7 +75,7 @@ public class SqlConnector
             System.out.println("Error occurred while executing SQL query " + e.getMessage());
         }
 
-        return json.toJSONString();
+        return json;
     }
 
     // TODO: public String getQueryHashMap(String query) throws SQLException
