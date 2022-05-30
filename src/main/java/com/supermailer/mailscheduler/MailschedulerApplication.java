@@ -20,6 +20,7 @@ public class MailschedulerApplication {
 	{
 		SpringApplication.run(MailschedulerApplication.class, args);
 		System.out.println("Web server launched successfully!");
+		String idJson = "[{\"id\":3}]";
 	}
 
 	public static <T> T convertJsonToObject(String json, Class<T> type) throws JsonProcessingException
