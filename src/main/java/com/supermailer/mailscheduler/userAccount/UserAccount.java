@@ -3,7 +3,7 @@ package com.supermailer.mailscheduler.userAccount;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_NULL)
+
 public class UserAccount
 {
     @JsonProperty("id")

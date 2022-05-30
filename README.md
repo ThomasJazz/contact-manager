@@ -19,9 +19,12 @@
 - Users can schedule e-mails to be sent out to their distribution lists
 
 # Stack Notes
+
 ## Spring Boot & Maven
 - Spring Boot offers sooooo many features that I've had to implement in my own custom `dotnet` libraries
-- Auto-JSON serialization is very nice
+- Not sure how to
+- Auto-JSON serialization for returns is very nice, but Deserializing from JSON -> CustomObjectType seems more difficult/not as built int?
+    - I think there must be an easy way to do this since they auto-serialize returns, but as of 5/30 I have not found a 1-line solution for this (looking for `JsonConvert.Deserialize` equivalent)
 - Java String interpolation sucks (it doesn't exist)
 - The project build/WebServer launch appears to be magnitudes faster than building and running an Azure Functions host 
     - Could be partially due to my personal computer being much faster than my work laptop
@@ -52,12 +55,12 @@
     
 - Stop **Apache** Web Server (Run cmd/other terminal as administrator)
     > TASKKILL /F /IM httpd.exe /T
-    
+
+- Start Postgres server (Must do this before any of the below commands will work):
+    > pg_ctl -D "C:\Program Files\PostgreSQL\14\data" start
+
 - Open command-line tool:
     > psql -U postgres
-
-- Start Postgres server:
-    > pg_ctl -D "C:\Program Files\PostgreSQL\14\data" start
 
 - Stop Postgres server:
     > pg_ctl -D "C:\Program Files\PostgreSQL\14\data" stop

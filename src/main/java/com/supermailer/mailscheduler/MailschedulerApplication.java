@@ -14,10 +14,9 @@ public class MailschedulerApplication {
 	// Target path is defined in pom.xml: 
 	// 		<artifactId>mailscheduler</artifactId>
 	// 		<version>0.0.1-SNAPSHOT</version>
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		SpringApplication.run(MailschedulerApplication.class, args);
-
 		System.out.println("Web server launched successfully!");
 	}
-
 }

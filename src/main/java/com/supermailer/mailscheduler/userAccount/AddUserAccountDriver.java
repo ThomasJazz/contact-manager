@@ -1,22 +1,21 @@
 package com.supermailer.mailscheduler.userAccount;
 import org.springframework.web.bind.annotation.*;
+import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 
 import java.sql.SQLException;
 
-import com.supermailer.sqlConnector.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.supermailer.library.*;
 
 @RestController
 public class AddUserAccountDriver 
 {
-    public String insertUserQuery = "INSERT INTO user_account" +
-        "(first_name, last_name, birthday, mobile_number, home_address, email_address, notes)" +
-        " VALUES (%s, %s, %s, %s, %s, %s, %s);";
-
-    public String addUserSp = "CALL sp_add_user_account({0}, {1}, {2}, {3}, {4}, {5}, {6}";
+    public static String funcAddUserQuery = "SELECT * FROM func_add_user_account('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
 
     @PostMapping("/add-user")
-    public UserAccount userAccount(
+    public UserAccount userAccount
+    (
         @RequestParam(value = "firstName", defaultValue="") String firstName,
         @RequestParam(value = "lastName", defaultValue="") String lastName,
         @RequestParam(value = "birthday", defaultValue="") String birthday,
@@ -36,18 +35,31 @@ public class AddUserAccountDriver
         UserAccount account = new UserAccount(firstName, lastName, birthday, email, mobileNumber, address, notes);
         System.out.println("Received account creation request for " + account.firstName + " " + account.lastName);
         
-        SqlConnector sql = new SqlConnector("jdbc:postgresql://localhost/super_mailer");
-        sql.Connect();
-        String query = buildQuery(account);
+        // Creatr sql object for creating and querying
+        SqlConnector sql = new SqlConnector();
+        String query = getAddUserQuery(account);
         
-        sql.GetQueryJson(query);
+        // Execute query and get results in JSON string
+        String json = sql.getQueryJson(query);
+        
+        // Attempt to grab the returned ID from the JSON string
+        // try
+        // {
+        //     account.id = MethodHelper.convertJsonToObject(json, UserAccount.class).id;
+        // }
+        // catch (JsonProcessingException e)
+        // {
+        //     System.out.println("Error occurred mapping JSON to UserAccount object: " + e.getMessage());
+        // }
+
+        System.out.println(json);
         return account;
     }
 
-    public String buildQuery(UserAccount account)
+    public static String getAddUserQuery(UserAccount account)
     {
         return String.format(
-            this.insertUserQuery, 
+            funcAddUserQuery,
             account.firstName, 
             account.lastName, 
             account.birthday, 
