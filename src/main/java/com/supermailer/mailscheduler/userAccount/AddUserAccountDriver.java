@@ -11,7 +11,7 @@ import com.supermailer.library.*;
 @RestController
 public class AddUserAccountDriver 
 {
-    public static String funcAddUserQuery = "SELECT * FROM func_add_user_account('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+    public static String funcAddUserQuery = "SELECT func_add_user_account AS id FROM func_add_user_account('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
 
     @PostMapping("/add-user")
     public UserAccount userAccount
@@ -43,14 +43,14 @@ public class AddUserAccountDriver
         String json = sql.getQueryJson(query);
         
         // Attempt to grab the returned ID from the JSON string
-        // try
-        // {
-        //     account.id = MethodHelper.convertJsonToObject(json, UserAccount.class).id;
-        // }
-        // catch (JsonProcessingException e)
-        // {
-        //     System.out.println("Error occurred mapping JSON to UserAccount object: " + e.getMessage());
-        // }
+        try
+        {
+            account.id = MethodHelper.convertJsonToObject(json, UserAccount.class).id;
+        }
+        catch (JsonProcessingException e)
+        {
+            System.out.println("Error occurred mapping JSON to UserAccount object: " + e.getMessage());
+        }
 
         System.out.println(json);
         return account;

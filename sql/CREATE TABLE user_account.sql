@@ -1,3 +1,4 @@
+-- DROP
 DROP TABLE user_account;
 
 CREATE TABLE user_account (
