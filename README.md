@@ -22,6 +22,7 @@
 ## Spring Boot & Maven
 - Spring Boot offers sooooo many features that I've had to implement in my own custom `dotnet` libraries
 - Auto-JSON serialization is very nice
+- Java String interpolation sucks (it doesn't exist)
 - The project build/WebServer launch appears to be magnitudes faster than building and running an Azure Functions host 
     - Could be partially due to my personal computer being much faster than my work laptop
 

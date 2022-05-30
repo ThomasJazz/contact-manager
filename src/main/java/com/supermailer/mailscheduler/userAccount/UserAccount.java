@@ -18,8 +18,8 @@ public class UserAccount
     @JsonProperty("birthday")
     public String birthday;
 
-    @JsonProperty("email")
-    public String email;
+    @JsonProperty("email_address")
+    public String email_address;
 
     @JsonProperty("mobile_number")
     public String mobileNumber;
@@ -30,24 +30,24 @@ public class UserAccount
     @JsonProperty("notes")
     public String notes;
 
-    public UserAccount(String id, String firstName, String lastName, String birthday, String email, String mobileNumber, String address, String notes)
+    public UserAccount(String id, String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
     {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
-        this.email = email;
+        this.email_address = email_address;
         this.mobileNumber = mobileNumber;
         this.address = address;
         this.notes = notes;
     }
 
-    public UserAccount(String firstName, String lastName, String birthday, String email, String mobileNumber, String address, String notes)
+    public UserAccount(String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
-        this.email = email;
+        this.email_address = email_address;
         this.mobileNumber = mobileNumber;
         this.address = address;
         this.notes = notes;
