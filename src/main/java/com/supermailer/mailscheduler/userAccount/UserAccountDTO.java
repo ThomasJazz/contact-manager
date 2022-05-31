@@ -1,10 +1,13 @@
 package com.supermailer.mailscheduler.userAccount;
-
+import java.lang.reflect.*;
+import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
-public class UserAccount
+public class UserAccountDTO
 {
     @JsonProperty("id")
     public String id;
@@ -30,9 +33,9 @@ public class UserAccount
     @JsonProperty("notes")
     public String notes;
 
-    public UserAccount(){}
+    public UserAccountDTO(){}
 
-    public UserAccount(String id, String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
+    public UserAccountDTO(String id, String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
     {
         this.id = id;
         this.firstName = firstName;
@@ -44,7 +47,7 @@ public class UserAccount
         this.notes = notes;
     }
 
-    public UserAccount(String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
+    public UserAccountDTO(String firstName, String lastName, String birthday, String email_address, String mobileNumber, String address, String notes)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,5 +56,10 @@ public class UserAccount
         this.mobileNumber = mobileNumber;
         this.address = address;
         this.notes = notes;
+    }
+
+    public static Type getArrayListToken()
+    {
+        return new TypeToken<ArrayList<UserAccountDTO>>(){}.getType();
     }
 }

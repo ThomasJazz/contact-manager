@@ -25,8 +25,12 @@
 - Not sure how to best organize files for related classes/objects... 
     - Should API endpoint groups have their own folders for the related `@RestController`'s?
     - Should utility libraries made for the project be in the library folder within the project? Or within the root directory?
-- Auto-JSON serialization for returns is very nice, but Deserializing from JSON -> CustomObjectType seems more difficult/not as built int?
+- Auto-JSON serialization for `@RestController` function returns is very nice
+- Deserializing from JSON -> CustomObjectType seems more difficult/not as built int?
     - I think there must be an easy way to do this since they auto-serialize returns, but as of 5/30 I have not found a 1-line solution for this (looking for `JsonConvert.Deserialize` equivalent)
+    - Which JSON package is used most? Every time I look on stack overflow it's using either `org.json`, `com.fasterxml.jackson.core.json`, or `com.google.gson`
+    - Found it: `ArrayList<UserAccount> accounts = gson.fromJson(json, new TypeToken<ArrayList<UserAccount>>(){}.getType());`
+        - Very tilted that I can't have a global deserialization function without using a `TypeToken` (because the class I put that function in would need to know the type of object it's passed exists i think)
 - Java String interpolation sucks (it doesn't exist)
 - The project build/WebServer launch appears to be magnitudes faster than building and running an Azure Functions host 
     - Could be partially due to my personal computer being much faster than my work laptop

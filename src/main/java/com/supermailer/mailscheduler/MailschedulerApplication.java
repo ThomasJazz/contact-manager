@@ -1,14 +1,20 @@
 package com.supermailer.mailscheduler;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.Object;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.apache.catalina.User;
 import org.json.*;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.supermailer.mailscheduler.userAccount.UserAccountDTO;
+import com.supermailer.library.*;
 
-import com.supermailer.mailscheduler.userAccount.UserAccount;
 
 @SuppressWarnings("unchecked")
 @SpringBootApplication
@@ -26,16 +32,6 @@ public class MailschedulerApplication {
 	{
 		SpringApplication.run(MailschedulerApplication.class, args);
 		System.out.println("Web server launched successfully!");
-
-		String idJson = "[{\"id\":3}]";
-		//JSONArray array = new JSONArray();
-		//JSONObject obj = new JSONObject();
-		//obj.put("id", 3);
-		//array.put(obj);
-
-		UserAccount account = new Gson().fromJson(idJson, UserAccount.class);
-
-		System.out.println("UserAccount ID: " + account.id);
 	}
 
 	public static <T> T convertJsonToObject(String json, Class<T> type) throws JsonProcessingException
