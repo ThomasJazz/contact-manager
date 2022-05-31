@@ -1,15 +1,13 @@
 package com.supermailer.library;
 
 import java.util.Properties;
+import java.util.ArrayList;
 import java.sql.*;
-import java.io.FileReader;
-import com.fasterxml.jackson.core.json.*;
 import com.google.gson.*;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 //import org.springframework.core.env.Environment;
 
-@SuppressWarnings("unchecked")
 public class SqlConnector 
 {
     private String url;
@@ -38,21 +36,15 @@ public class SqlConnector
         return DriverManager.getConnection(this.url, this.connectionProps);
     }
 
-    /**
-     * 
-     * @param query
-     * @return
-     * @throws SQLException
-     */
     // public String getQueryJson(String query) throws SQLException
     // {
         
     // }
 
     /**
-     * 
-     * @param query
-     * @return
+     * Executes the provided query string and returns the result set in a JsonArray
+     * @param query The query to execute
+     * @return JsonArray of the ResultSet
      * @throws SQLException
      */
     public JsonArray getQueryJsonArray(String query) throws SQLException
@@ -85,15 +77,11 @@ public class SqlConnector
         return array;
     }
 
-
-    // TODO: public String getQueryHashMap(String query) throws SQLException
-
-
-    public String getStoredProcedureJson(String procedure, String[] spArgs)
+    /********* QUERY STRING FORMATTING/MANIPULATION *********/
+    public static String formatQuery(String query, ArrayList<String> formatArgs)
     {
-        String results = "";
+        String finalQuery = String.format(query, formatArgs.get(0));
 
-
-        return results;
+        return finalQuery;
     }
 }

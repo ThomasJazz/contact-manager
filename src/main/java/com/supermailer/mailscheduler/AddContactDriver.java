@@ -1,11 +1,10 @@
 package com.supermailer.mailscheduler;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import org.springframework.lang.NonNull;
-import java.lang.reflect.Type;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.HttpStatus;
 import com.google.gson.Gson;
 import com.google.gson.*;
 import com.google.gson.GsonBuilder;
@@ -13,15 +12,16 @@ import com.supermailer.library.*;
 import com.supermailer.mailscheduler.model.*;
 
 @RestController
-public class AddUserAccountDriver 
+public class AddContactDriver 
 {
     public SqlConnector sql = new SqlConnector();
-    public static String funcAddUserQuery = "SELECT func_add_user_account AS user_account_id FROM func_add_user_account('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+
+    public static String funcAddContactQuery = "SELECT func_add_contact AS contact_id FROM func_add_contact(%s, '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
     public static Gson gson = new GsonBuilder().serializeNulls().create();
-    
-    @PostMapping("/add-user")
-    public UserAccount userAccount
-    (
+
+    @PostMapping("/add-contact")
+    public Contact contact(
+        @NonNull @NotBlank @RequestParam(value = "user_account_id", defaultValue = "") String userAccountId,
         @NonNull @NotBlank @RequestParam(value = "first_name", defaultValue="") String firstName,
         @RequestParam(value = "last_name", defaultValue="") String lastName,
         @RequestParam(value = "birthday", defaultValue="") String birthday,
@@ -30,15 +30,17 @@ public class AddUserAccountDriver
         @RequestParam(value = "address", defaultValue="") String address,
         @RequestParam(value = "notes", defaultValue="") String notes
     ) throws SQLException
-    {
-        // Body
-        UserAccount account = new UserAccount(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+    { 
+        Contact contact = new Contact(userAccountId, 
+            firstName, 
+            lastName, 
+            birthday, 
+            emailAddress, 
+            mobileNumber, 
+            address, 
+            notes);
         
-        System.out.println("/add-user processing request:");
-        System.out.println(gson.toJson(account));
-
-        // Creatr sql object for creating and querying
-        String query = getAddUserQuery(account);
+        String query = getAddContactQuery(contact);
         
         // Execute query and get results in JSON string
         JsonArray json = sql.getQueryJsonArray(query);
@@ -47,29 +49,30 @@ public class AddUserAccountDriver
         try
         {
             JsonObject obj = json.get(0).getAsJsonObject();
-            account.userAccountId = obj.get("user_account_id").getAsString();
+            contact.contactId = obj.get("contact_id").getAsString();
 
-            System.out.println(account.userAccountId);
+            System.out.println(contact.contactId);
         }
         catch (Exception e)
         {
-            System.out.println("Error occurred mapping JSON to UserAccount object: " + e.getMessage());
+            System.out.println("Error occurred mapping JSON to Contact object: " + e.getMessage());
         }
         
-        return account;
+        return contact;
     }
 
-    public static String getAddUserQuery(UserAccount account)
+    public static String getAddContactQuery(Contact contact)
     {
         return String.format(
-            funcAddUserQuery,
-            account.firstName, 
-            account.lastName, 
-            account.birthday, 
-            account.mobileNumber, 
-            account.address, 
-            account.emailAddress, 
-            account.notes
+            funcAddContactQuery,
+            contact.userAccountId,
+            contact.firstName, 
+            contact.lastName, 
+            contact.birthday, 
+            contact.mobileNumber, 
+            contact.address, 
+            contact.emailAddress, 
+            contact.notes
         );
     }
 }

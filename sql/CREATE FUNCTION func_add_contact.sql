@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION func_add_user_account (
+CREATE OR REPLACE FUNCTION func_add_contact (
+    _user_account_id INT,
     _first_name CHAR (50), 
     _last_name CHAR (50),
     _birthday DATE,
@@ -11,8 +12,9 @@ RETURNS INTEGER
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    INSERT INTO user_account
+    INSERT INTO contact
     (
+        user_account_id,
         first_name, 
         last_name, 
         birthday, 
@@ -23,6 +25,7 @@ BEGIN
     )
     VALUES 
     (
+        _user_account_id,
         _first_name, 
         _last_name, 
         _birthday, 
@@ -31,6 +34,6 @@ BEGIN
         _email_address,
         _notes
     );
-    RETURN(SELECT user_account_id FROM user_account ORDER BY user_account_id DESC LIMIT 1);
+    RETURN(SELECT contact_id FROM contact ORDER BY contact_id DESC LIMIT 1);
 END;
 $$;

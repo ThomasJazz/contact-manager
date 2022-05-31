@@ -34,3 +34,4 @@ build/
 
 temp-env.txt
 src/main/resources/application.properties
+sql/WORKING QUERIES.sql

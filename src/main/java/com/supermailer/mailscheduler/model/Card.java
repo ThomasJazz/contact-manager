@@ -1,11 +1,11 @@
 package com.supermailer.mailscheduler.model;
 import com.fasterxml.jackson.annotation.*;
+import javax.validation.constraints.NotBlank;
+import org.springframework.lang.NonNull;
+
 
 public abstract class Card 
 {
-    @JsonProperty("user_account_id")
-    public String userAccountId;
-
     @JsonProperty("first_name")
     public String firstName;
 
@@ -27,6 +27,8 @@ public abstract class Card
     @JsonProperty("notes")
     public String notes;
 
+    public Card(){}
+    
     public Card(String firstName, 
         String lastName, 
         String birthday, 
