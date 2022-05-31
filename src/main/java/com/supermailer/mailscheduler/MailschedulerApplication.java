@@ -12,8 +12,8 @@ import org.apache.catalina.User;
 import org.json.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.supermailer.mailscheduler.userAccount.UserAccountDTO;
 import com.supermailer.library.*;
+import com.supermailer.mailscheduler.model.UserAccount;
 
 
 @SuppressWarnings("unchecked")

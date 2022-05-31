@@ -1,14 +1,14 @@
-package com.supermailer.mailscheduler.userAccount;
+package com.supermailer.mailscheduler;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.lang.reflect.Type;
 import org.springframework.web.bind.annotation.*;
-import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.supermailer.library.*;
+import com.supermailer.mailscheduler.model.UserAccount;
 
 @RestController
 public class AddUserAccountDriver 
@@ -17,12 +17,12 @@ public class AddUserAccountDriver
     public static Gson gson = new Gson();
 
     @PostMapping("/add-user")
-    public UserAccountDTO userAccount
+    public UserAccount userAccount
     (
         @RequestParam(value = "firstName", defaultValue="") String firstName,
         @RequestParam(value = "lastName", defaultValue="") String lastName,
         @RequestParam(value = "birthday", defaultValue="") String birthday,
-        @RequestParam(value = "email", defaultValue="") String email,
+        @RequestParam(value = "email", defaultValue="") String emailAddress,
         @RequestParam(value = "mobileNumber", defaultValue="") String mobileNumber,
         @RequestParam(value = "address", defaultValue="") String address,
         @RequestParam(value = "notes", defaultValue="") String notes
@@ -35,7 +35,7 @@ public class AddUserAccountDriver
         }
 
         // Body
-        UserAccountDTO account = new UserAccountDTO(firstName, lastName, birthday, email, mobileNumber, address, notes);
+        UserAccount account = new UserAccount(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
         
         // Creatr sql object for creating and querying
         SqlConnector sql = new SqlConnector();
@@ -47,8 +47,8 @@ public class AddUserAccountDriver
         // Attempt to grab the returned ID from the JSON string
         try
         {
-            ArrayList<UserAccountDTO> accounts = gson.fromJson(json, new TypeToken<ArrayList<UserAccountDTO>>(){}.getType());
-            account.id = accounts.get(0).id;
+            ArrayList<UserAccount> accounts = gson.fromJson(json, new TypeToken<ArrayList<UserAccount>>(){}.getType());
+            account.userId = accounts.get(0).userId;
         }
         catch (Exception e)
         {
@@ -60,7 +60,7 @@ public class AddUserAccountDriver
         return account;
     }
 
-    public static String getAddUserQuery(UserAccountDTO account)
+    public static String getAddUserQuery(UserAccount account)
     {
         return String.format(
             funcAddUserQuery,
@@ -69,7 +69,7 @@ public class AddUserAccountDriver
             account.birthday, 
             account.mobileNumber, 
             account.address, 
-            account.email_address, 
+            account.emailAddress, 
             account.notes
         );
     }

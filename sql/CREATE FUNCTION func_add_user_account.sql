@@ -34,6 +34,6 @@ BEGIN
         _email_address,
         _notes
     );
-    RETURN(SELECT id FROM user_account ORDER BY id DESC LIMIT 1) AS user_account_id;
+    RETURN(SELECT user_id FROM user_account ORDER BY id DESC LIMIT 1);
 END;
 $$;

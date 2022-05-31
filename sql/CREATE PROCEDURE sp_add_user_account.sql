@@ -33,6 +33,6 @@ BEGIN
         _email_address,
         _notes
     )
-    RETURNING id;
+    RETURNING user_id;
 END;
 $$;
