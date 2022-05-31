@@ -1,13 +1,11 @@
 package com.supermailer.mailscheduler.model;
-import java.lang.reflect.*;
-import java.util.ArrayList;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public abstract class Card 
 {
+    @JsonProperty("user_account_id")
+    public String userAccountId;
+
     @JsonProperty("first_name")
     public String firstName;
 

@@ -2,7 +2,7 @@
 DROP TABLE user_account;
 
 CREATE TABLE user_account (
-    user_id SERIAL PRIMARY KEY,
+    user_account_id SERIAL PRIMARY KEY,
     first_name CHAR (50) NOT NULL,
     last_name CHAR (50),
     birthday DATE,

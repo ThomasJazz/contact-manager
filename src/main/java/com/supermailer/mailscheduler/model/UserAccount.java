@@ -8,10 +8,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class UserAccount extends Card
 {
-    @JsonProperty("user_id")
-    public String userId;
+    // @JsonProperty("user_account_id")
+    // public String userAccountId;
 
-    public UserAccount(String userId, 
+    public UserAccount(String userAccountId, 
         String firstName, 
         String lastName, 
         String birthday, 
@@ -22,12 +22,13 @@ public class UserAccount extends Card
     )
     {
         super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
-        this.userId = userId;
+        this.userAccountId = userAccountId;
     }
 
     public UserAccount(String firstName, String lastName, String birthday, String emailAddress, String mobileNumber, String address, String notes)
     {
         super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+        this.userAccountId = "";
     }
 
     public static Type getArrayListToken()

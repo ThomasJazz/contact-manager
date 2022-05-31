@@ -4,9 +4,8 @@ import java.util.Properties;
 import java.sql.*;
 import java.io.FileReader;
 import com.fasterxml.jackson.core.json.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.*;
+import com.google.gson.*;
+import com.google.gson.Gson;
 
 //import org.springframework.core.env.Environment;
 
@@ -45,29 +44,37 @@ public class SqlConnector
      * @return
      * @throws SQLException
      */
-    public JSONArray getQueryJson(String query) throws SQLException
+    // public String getQueryJson(String query) throws SQLException
+    // {
+        
+    // }
+
+    /**
+     * 
+     * @param query
+     * @return
+     * @throws SQLException
+     */
+    public JsonArray getQueryJsonArray(String query) throws SQLException
     {
-        JSONArray json = new JSONArray();
+        JsonArray array = new JsonArray();
 
         try (Connection conn = this.GetConnection(); 
             PreparedStatement ps = conn.prepareStatement(query); 
             ResultSet rs = ps.executeQuery();)
         {
-            ResultSetMetaData rsmd = rs.getMetaData();
-            
-            // Parse through query and put it into JSONArray object
-            while(rs.next()) 
+            while (rs.next())
             {
-                int numColumns = rsmd.getColumnCount();
-                JSONObject obj = new JSONObject();
-                
-                for (int i = 1; i <= numColumns; i++) 
+                ResultSetMetaData rsmd = rs.getMetaData();
+                int totalCols = rsmd.getColumnCount();
+
+                JsonObject obj = new JsonObject();
+                for (int i = 1; i <= totalCols; i++)
                 {
-                    String column_name = rsmd.getColumnName(i);
-                    obj.put(column_name, rs.getObject(column_name));
+                    obj.addProperty(rsmd.getColumnName(i), rs.getString(i));
                 }
 
-                json.add(obj);
+                array.add(obj);
             }
         }
         catch (SQLException e)
@@ -75,8 +82,9 @@ public class SqlConnector
             System.out.println("Error occurred while executing SQL query " + e.getMessage());
         }
 
-        return json;
+        return array;
     }
+
 
     // TODO: public String getQueryHashMap(String query) throws SQLException
 

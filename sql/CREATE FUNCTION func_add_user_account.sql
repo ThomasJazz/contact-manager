@@ -1,6 +1,3 @@
-DROP FUNCTION func_add_user_account;
-
-
 CREATE OR REPLACE FUNCTION func_add_user_account (
     _first_name CHAR (50), 
     _last_name CHAR (50),
@@ -34,6 +31,6 @@ BEGIN
         _email_address,
         _notes
     );
-    RETURN(SELECT user_id FROM user_account ORDER BY id DESC LIMIT 1);
+    RETURN(SELECT user_account_id FROM user_account ORDER BY user_account_id DESC LIMIT 1);
 END;
 $$;
