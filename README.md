@@ -5,18 +5,32 @@
 
 ## Project Objectives
 - The goal of this project is to gain experience building API's with a Java stack
-- Tools used:
-    - Java Spring Boot
-    - JDBC
+- Frameworks & Tools
+    - Java 
+        - Java Spring Boot
+        - For interacting with DB's in Java, I will be looking into
+            - [JDBC and JPA](https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different)
+            - [Hibernate](https://hibernate.org/)
+            - [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) in general
     - PostgresSQL
         - Set up a PostgresSQL database on my personal computer
         - Create some basic tables and populate them via my *Super Mailer* API
-    - pgAdmin
+        - pgAdmin
+    - Angular (Maybe)
+    - React (Maybe)
     
-
 ## What does the Super Mailer API do?
 - Allows users to manage small e-mail distribution lists
 - Users can schedule e-mails to be sent out to their distribution lists
+
+# Endpoints
+- `/add-user` *POST*
+    - Insert record to `user_account` DB table
+    - Return created record in `UserAccount` object JSON
+    - User accounts belong to the people that manage the email distribution lists
+- `/add-contact` *POST*
+    - Insert record to `contact` DB table
+    - `Contact`s always have `UserAccount`
 
 # Stack Notes
 
@@ -51,7 +65,7 @@
     - > ./mvnw clean package
     - > java -jar target/mailscheduler-0.0.1-SNAPSHOT.jar
 
-- Target path is defined in pom.xml: 
+- Target path is defined in pom.xml
     ```xml
     <artifactId>mailscheduler</artifactId>
     <version>0.0.1-SNAPSHOT</version>
