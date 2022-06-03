@@ -15,11 +15,11 @@ import org.springframework.lang.NonNull;
 //@JsonInclude(Include.NON_NULL)
 public class Contact extends Card
 {
-    @JsonProperty("user_contact_id")
-    public String contactId;
-    
     @JsonProperty("user_account_id")
     public String userAccountId;
+
+    @JsonProperty("user_contact_id")
+    public String contactId;
 
     // Exists only for the sake of JPA
     protected Contact(){}
