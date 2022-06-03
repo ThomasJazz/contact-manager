@@ -1,7 +1,5 @@
-package com.supermailer.mailscheduler;
+package com.supermailer.mailscheduler.contactapi;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +36,8 @@ public class AddContactDriver
             emailAddress, 
             mobileNumber, 
             address, 
-            notes);
+            notes
+        );
         
         String query = getAddContactQuery(contact);
         

@@ -4,20 +4,25 @@ import com.fasterxml.jackson.annotation.*;
 import javax.validation.constraints.NotBlank;
 import org.springframework.lang.NonNull;
 
+// For JPA mapping to DB
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.ForeignKey;
+// import javax.persistence.Column;
+
 //@JsonInclude(Include.NON_NULL)
 public class Contact extends Card
 {
-    @JsonProperty("contact_id")
+    @JsonProperty("user_contact_id")
     public String contactId;
     
-    @JsonProperty("user_contact_id")
+    @JsonProperty("user_account_id")
     public String userAccountId;
 
-    public Contact()
-    {
-        super();
-        this.contactId = null;
-    }
+    // Exists only for the sake of JPA
+    protected Contact(){}
 
     public Contact (
         String userAccountId,
@@ -33,6 +38,4 @@ public class Contact extends Card
         super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
         this.userAccountId = userAccountId;
     }
-
-    
 }
