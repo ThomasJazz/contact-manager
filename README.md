@@ -96,6 +96,5 @@
 
 ## Apache Kafka
 - [vs. Azure EventHub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
-    ```
-    the reality is that Apache Kafka doesn't implement, for instance, the competing-consumer queue pattern, doesn't have support for publish-subscribe at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
-    ```
+    - "the reality is that Apache Kafka doesn't implement, for instance, the competing-consumer queue pattern, doesn't have support for publish-subscribe at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios."
+    
