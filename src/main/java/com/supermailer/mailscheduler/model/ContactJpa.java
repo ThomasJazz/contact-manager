@@ -10,8 +10,9 @@ import org.springframework.lang.NonNull;
 // import javax.persistence.GenerationType;
 // import javax.persistence.Id;
 import javax.persistence.*;
+import javax.swing.SpringLayout.Constraints;
 
-
+// followed guide: https://zetcode.com/springboot/postgresql/
 @Entity
 @Table(name="contact")
 public class ContactJpa 
@@ -21,7 +22,30 @@ public class ContactJpa
     @GeneratedValue(strategy=GenerationType.AUTO)
     public String contactId;
 
+    @Column(name="user_account_id")
+    //@ForeignKey(ConstraintMode.CONSTRAINT)
     public String userAccountId;
+
+    @Column(name="first_name")
+    public String firstName;
+    
+    @Column(name="last_name")
+    public String lastName;
+    
+    @Column(name="birthday")
+    public String birthday;
+
+    @Column(name="email_address")
+    public String emailAddress;
+
+    @Column(name="mobile_number")
+    public String mobileNumber;
+
+    @Column(name="address")
+    public String address;
+
+    @Column(name="notes")
+    public String notes;
 
     public ContactJpa(){}
 
