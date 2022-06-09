@@ -24,16 +24,16 @@ public class UserAccount extends Card
         String birthday, 
         String emailAddress, 
         String mobileNumber, 
-        String address, 
+        String homeAddress, 
         String notes
     )
     {
-        super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+        super(firstName, lastName, birthday, emailAddress, mobileNumber, homeAddress, notes);
         this.userAccountId = userAccountId;
     }
 
-    public UserAccount(String firstName, String lastName, String birthday, String emailAddress, String mobileNumber, String address, String notes)
+    public UserAccount(String firstName, String lastName, String birthday, String emailAddress, String mobileNumber, String homeAddress, String notes)
     {
-        super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+        super(firstName, lastName, birthday, emailAddress, mobileNumber, homeAddress, notes);
     }
 }

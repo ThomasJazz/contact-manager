@@ -5,7 +5,7 @@
         "birthday": "2/11/1995",
         "email_address": "redacted",
         "mobile_number": "redacted",
-        "address": "P32 WALLABY WAY SYDNEY",
+        "home_address": "P32 WALLABY WAY SYDNEY",
         "notes": "Mad lad",
         "user_contact_id": "3",
         "user_account_id": "1"
@@ -16,7 +16,7 @@
         "birthday": "9/29/1951",
         "email_address": "redacted",
         "mobile_number": "redacted",
-        "address": "P33 WALLABY WAY SYDNEY",
+        "home_address": "P33 WALLABY WAY SYDNEY",
         "notes": "Hey mr bud",
         "user_contact_id": "4"
     }

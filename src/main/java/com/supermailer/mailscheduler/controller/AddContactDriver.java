@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.contactapi;
+package com.supermailer.mailscheduler.controller;
 import java.sql.SQLException;
 import javax.validation.constraints.NotBlank;
 import org.springframework.lang.NonNull;
@@ -25,7 +25,7 @@ public class AddContactDriver
         @RequestParam(value = "birthday", defaultValue="") String birthday,
         @RequestParam(value = "email", defaultValue="") String emailAddress,
         @RequestParam(value = "mobile_number", defaultValue="") String mobileNumber,
-        @RequestParam(value = "address", defaultValue="") String address,
+        @RequestParam(value = "home_address", defaultValue="") String homeAddress,
         @RequestParam(value = "notes", defaultValue="") String notes
     ) throws SQLException
     { 
@@ -35,7 +35,7 @@ public class AddContactDriver
             birthday, 
             emailAddress, 
             mobileNumber, 
-            address, 
+            homeAddress, 
             notes
         );
         
@@ -69,7 +69,7 @@ public class AddContactDriver
             contact.lastName, 
             contact.birthday, 
             contact.mobileNumber, 
-            contact.address, 
+            contact.homeAddress, 
             contact.emailAddress, 
             contact.notes
         );

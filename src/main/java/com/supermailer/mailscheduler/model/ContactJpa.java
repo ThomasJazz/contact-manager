@@ -13,8 +13,7 @@ import javax.persistence.*;
 import javax.swing.SpringLayout.Constraints;
 
 // followed guide: https://zetcode.com/springboot/postgresql/
-@Entity
-@Table(name="contact")
+
 public class ContactJpa 
 {
     @Id
@@ -41,8 +40,8 @@ public class ContactJpa
     @Column(name="mobile_number")
     public String mobileNumber;
 
-    @Column(name="address")
-    public String address;
+    @Column(name="home_address")
+    public String homeAddress;
 
     @Column(name="notes")
     public String notes;

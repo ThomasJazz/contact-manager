@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler;
+package com.supermailer.mailscheduler.controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.validation.constraints.NotBlank;
@@ -27,12 +27,12 @@ public class AddUserAccountDriver
         @RequestParam(value = "birthday", defaultValue="") String birthday,
         @RequestParam(value = "email", defaultValue="") String emailAddress,
         @RequestParam(value = "mobile_number", defaultValue="") String mobileNumber,
-        @RequestParam(value = "address", defaultValue="") String address,
+        @RequestParam(value = "home_address", defaultValue="") String homeAddress,
         @RequestParam(value = "notes", defaultValue="") String notes
     ) throws SQLException
     {
         // Body
-        UserAccount account = new UserAccount(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+        UserAccount account = new UserAccount(firstName, lastName, birthday, emailAddress, mobileNumber, homeAddress, notes);
         
         System.out.println("/add-user processing request:");
         System.out.println(gson.toJson(account));
@@ -67,7 +67,7 @@ public class AddUserAccountDriver
             account.lastName, 
             account.birthday, 
             account.mobileNumber, 
-            account.address, 
+            account.homeAddress, 
             account.emailAddress, 
             account.notes
         );

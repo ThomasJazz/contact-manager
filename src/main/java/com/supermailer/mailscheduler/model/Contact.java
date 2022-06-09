@@ -31,11 +31,11 @@ public class Contact extends Card
         String birthday, 
         String emailAddress, 
         String mobileNumber, 
-        String address, 
+        String homeAddress, 
         String notes
     )
     {
-        super(firstName, lastName, birthday, emailAddress, mobileNumber, address, notes);
+        super(firstName, lastName, birthday, emailAddress, mobileNumber, homeAddress, notes);
         this.userAccountId = userAccountId;
     }
 }

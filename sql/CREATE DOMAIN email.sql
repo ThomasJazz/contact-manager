@@ -1,4 +1,4 @@
--- https://dba.stackexchange.com/questions/68266/what-is-the-best-way-to-store-an-email-address-in-postgresql
+-- https://dba.stackexchange.com/questions/68266/what-is-the-best-way-to-store-an-email-homeAddress-in-postgresql
 
 CREATE EXTENSION citext;
 CREATE DOMAIN email AS citext
