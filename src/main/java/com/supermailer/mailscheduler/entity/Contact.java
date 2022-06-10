@@ -1,19 +1,14 @@
 package com.supermailer.mailscheduler.entity;
 import com.supermailer.mailscheduler.model.Card;
 
-import javax.persistence.Entity;
-
-import org.springframework.data.annotation.Id;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-@Entity
 public class Contact extends Card
 {
     public int userAccountId;
 
-    @Id
     public int contactId;
 
     // @Modifying
