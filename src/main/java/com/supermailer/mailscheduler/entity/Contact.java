@@ -1,4 +1,5 @@
 package com.supermailer.mailscheduler.entity;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.supermailer.mailscheduler.model.Card;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -7,8 +8,10 @@ import org.springframework.data.repository.query.Param;
 
 public class Contact extends Card
 {
+    @JsonProperty("user_account_id")
     public int userAccountId;
 
+    @JsonProperty("contact_id")
     public int contactId;
 
     // @Modifying

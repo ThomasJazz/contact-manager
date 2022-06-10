@@ -30,6 +30,7 @@ public abstract class Card
     @JsonProperty("notes")
     public String notes;
 
+    @JsonProperty("create_date_time")
     public String createDateTime;
 
     public Card(){}
