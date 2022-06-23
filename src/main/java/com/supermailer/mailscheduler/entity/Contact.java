@@ -1,6 +1,5 @@
 package com.supermailer.mailscheduler.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.supermailer.mailscheduler.model.Card;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

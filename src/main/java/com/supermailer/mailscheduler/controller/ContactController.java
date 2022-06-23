@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.controller.jdbc;
+package com.supermailer.mailscheduler.controller;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,19 +13,20 @@ import com.supermailer.mailscheduler.service.ContactService;
 import com.supermailer.mailscheduler.entity.Contact;
 
 @RestController
-@RequestMapping("/jdbc-app")
+@RequestMapping("/contact")
 public class ContactController 
 {
     @Resource
     ContactService contactService;
 
-    @GetMapping(value="/contact-list")
+    @GetMapping(value="/list-all")
     public List<Contact> getAllContacts()
     {
+        System.out.println("Executed getAllContacts");
         return contactService.findAll();
     }
 
-    @PostMapping(value="/add-contact")
+    @PostMapping(value="/add")
     public void addContact(@RequestBody Contact contact)
     {
         contactService.insertContact(contact);

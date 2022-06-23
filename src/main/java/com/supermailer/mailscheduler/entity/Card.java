@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.model;
+package com.supermailer.mailscheduler.entity;
 import com.fasterxml.jackson.annotation.*;
 
 import java.sql.Date;
