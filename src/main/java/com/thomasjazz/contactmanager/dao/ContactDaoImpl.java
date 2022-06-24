@@ -1,6 +1,8 @@
 package com.thomasjazz.contactmanager.dao;
 import java.util.List;
 
+import com.thomasjazz.contactmanager.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -14,17 +16,21 @@ import com.thomasjazz.contactmanager.mapper.ContactRowMapper;
 @Repository
 public class ContactDaoImpl implements ContactDao
 {
-    NamedParameterJdbcTemplate template; 
+    NamedParameterJdbcTemplate template;
+    ContactRepository repo;
 
-    public ContactDaoImpl(NamedParameterJdbcTemplate template)
+    @Autowired
+    public ContactDaoImpl(NamedParameterJdbcTemplate template, ContactRepository repo)
     {
         this.template = template;
+        this.repo = repo;
     }
 
     @Override
     public List<Contact> findAll()
     {
-        return template.query("SELECT * FROM contact", new ContactRowMapper());
+        List<Contact> res = template.query("SELECT * FROM contact", new ContactRowMapper());
+        return res;
     }
 
     @Override
@@ -35,6 +41,7 @@ public class ContactDaoImpl implements ContactDao
         return template.query(sql, new ContactRowMapper());
     }
 
+    // TODO: UPDATE THIS TO USE repo.save(contact) INSTEAD OF A QUERY
     @Override
     public void insertContact(Contact contact)
     {
