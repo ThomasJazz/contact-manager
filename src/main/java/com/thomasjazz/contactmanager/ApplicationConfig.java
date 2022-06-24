@@ -23,7 +23,7 @@ import java.util.Properties;
 // Basically copied this from:
 // https://docs.spring.io/spring-data/jpa/docs/1.4.1.RELEASE/reference/html/jpa.repositories.html
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "com.thomasjazz.contactmanager.repository")
 @EnableTransactionManagement
 class ApplicationConfig {
 

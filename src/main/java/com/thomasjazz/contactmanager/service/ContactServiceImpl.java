@@ -3,10 +3,13 @@ package com.thomasjazz.contactmanager.service;
 import com.thomasjazz.contactmanager.dao.ContactDao;
 import org.springframework.stereotype.Component;
 import com.thomasjazz.contactmanager.entity.Contact;
+import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
 
 @Component
+@Service
 public class ContactServiceImpl implements ContactService 
 {
     @Resource
