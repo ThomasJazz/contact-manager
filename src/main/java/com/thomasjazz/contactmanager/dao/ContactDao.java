@@ -1,10 +1,7 @@
-package com.supermailer.mailscheduler.dao;
+package com.thomasjazz.contactmanager.dao;
 
 import java.util.List;
-import com.supermailer.mailscheduler.entity.Contact;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import com.thomasjazz.contactmanager.entity.Contact;
 
 // https://dzone.com/articles/bounty-spring-boot-and-postgresql-database
 // DAO stands for data access object

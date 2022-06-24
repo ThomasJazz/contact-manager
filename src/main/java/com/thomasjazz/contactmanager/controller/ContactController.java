@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.controller;
+package com.thomasjazz.contactmanager.controller;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.supermailer.mailscheduler.service.ContactService;
-import com.supermailer.mailscheduler.entity.Contact;
+import com.thomasjazz.contactmanager.service.ContactService;
+import com.thomasjazz.contactmanager.entity.Contact;
 
 @RestController
 @RequestMapping("/contact")

@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.controller._archive;
+package com.thomasjazz.contactmanager.controller._archive;
 // package com.supermailer.mailscheduler.controller;
 // import java.sql.SQLException;
 // import javax.validation.constraints.NotBlank;

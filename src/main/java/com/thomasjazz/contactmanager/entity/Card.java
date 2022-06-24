@@ -1,4 +1,4 @@
-package com.supermailer.mailscheduler.entity;
+package com.thomasjazz.contactmanager.entity;
 import com.fasterxml.jackson.annotation.*;
 
 import java.sql.Date;

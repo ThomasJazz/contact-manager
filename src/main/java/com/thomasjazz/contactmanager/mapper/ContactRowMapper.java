@@ -1,10 +1,10 @@
-package com.supermailer.mailscheduler.mapper;
+package com.thomasjazz.contactmanager.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
-import com.supermailer.mailscheduler.entity.Contact;
+import com.thomasjazz.contactmanager.entity.Contact;
 
 public class ContactRowMapper implements RowMapper<Contact>
 {

@@ -1,8 +1,8 @@
-package com.supermailer.mailscheduler.service;
+package com.thomasjazz.contactmanager.service;
 
+import com.thomasjazz.contactmanager.dao.ContactDao;
 import org.springframework.stereotype.Component;
-import com.supermailer.mailscheduler.dao.ContactDao;
-import com.supermailer.mailscheduler.entity.Contact;
+import com.thomasjazz.contactmanager.entity.Contact;
 import javax.annotation.Resource;
 import java.util.List;
 

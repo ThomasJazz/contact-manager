@@ -1,9 +1,5 @@
-package com.supermailer.mailscheduler.entity;
+package com.thomasjazz.contactmanager.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 public class Contact extends Card
 {

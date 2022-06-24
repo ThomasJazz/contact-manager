@@ -1,9 +1,6 @@
-package com.supermailer.mailscheduler.dao;
+package com.thomasjazz.contactmanager.dao;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -11,8 +8,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.supermailer.mailscheduler.entity.Contact;
-import com.supermailer.mailscheduler.mapper.ContactRowMapper;
+import com.thomasjazz.contactmanager.entity.Contact;
+import com.thomasjazz.contactmanager.mapper.ContactRowMapper;
 
 @Repository
 public class ContactDaoImpl implements ContactDao
