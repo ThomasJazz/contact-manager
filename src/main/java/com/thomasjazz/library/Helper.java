@@ -1,4 +1,4 @@
-package com.supermailer.library;
+package com.thomasjazz.library;
 import java.util.*;
 import java.lang.reflect.*;
 import com.google.gson.Gson;

@@ -29,9 +29,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
 }
 
-group = 'com.supermailer'
+group = 'com.contactmanager'
 version = '0.0.1-SNAPSHOT'
-description = 'mailscheduler'
+description = 'contactmanager'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {

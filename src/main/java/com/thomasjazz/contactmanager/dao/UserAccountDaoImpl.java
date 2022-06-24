@@ -18,7 +18,7 @@ public class UserAccountDaoImpl implements UserAccountDao
     public UserAccountDaoImpl(NamedParameterJdbcTemplate template)
     {
         this.template = template;
-        this.repo = BeanFactory.getBean(UserAccountRepository.class);
+
     }
 
     /**
