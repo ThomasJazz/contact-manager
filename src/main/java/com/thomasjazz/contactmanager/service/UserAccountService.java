@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface UserAccountService
 {
+    List<UserAccount> findAllUsers();
     List<Contact> findAllUserContacts(int id);
 }

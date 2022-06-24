@@ -22,7 +22,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.0'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.0'
     implementation 'javax.persistence:javax.persistence-api:2.2'
-    implementation 'com.liferay:com.fasterxml.jackson.core:2.10.3.LIFERAY-PATCHED-1'
+    //implementation 'com.liferay:com.fasterxml.jackson.core:2.10.3.LIFERAY-PATCHED-1'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.json:json:20220320'
     // https://mvnrepository.com/artifact/org.hsqldb/hsqldb/2.0.0

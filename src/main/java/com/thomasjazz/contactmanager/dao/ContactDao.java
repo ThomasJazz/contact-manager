@@ -10,8 +10,8 @@ public interface ContactDao
     // JDBC methods
     List<Contact> findAllContacts();
     List<Contact> findContactsForUser(int userAccountId);
-    void insertContact(Contact contact);
-    void updateContact(Contact contact);
+    Contact insertContact(Contact contact);
+    Contact updateContact(Contact contact);
     
     // JPA methods
     // void insertContact

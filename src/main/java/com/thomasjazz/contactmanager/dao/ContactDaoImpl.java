@@ -43,48 +43,52 @@ public class ContactDaoImpl implements ContactDao
 
     // TODO: UPDATE THIS TO USE repo.save(contact) INSTEAD OF A QUERY
     @Override
-    public void insertContact(Contact contact)
+    public Contact insertContact(Contact contact)
     {
-        //final String sql = "SELECT func_add_contact AS contact_id FROM func_add_contact(:userAccountId, :firstName, '%s', '%s', '%s', '%s', '%s', '%s')";
-        final String sql = "INSERT INTO contact(user_account_id, first_name, last_name, birthday, mobile_number, home_address, email_address, notes) " +
-            "VALUES(:userAccountId, :firstName, :lastName, :birthday, :mobileNumber, :homeAddress, :emailAddress, :notes)";
-        
-        KeyHolder holder = new GeneratedKeyHolder();
-        SqlParameterSource param = new MapSqlParameterSource()
-            .addValue("userAccountId", contact.userAccountId)
-            .addValue("firstName", contact.firstName)
-            .addValue("lastName", contact.lastName)
-            .addValue("birthday", contact.birthday)
-            .addValue("mobileNumber", contact.mobileNumber)
-            .addValue("homeAddress", contact.homeAddress)
-            .addValue("emailAddress", contact.emailAddress)
-            .addValue("notes", contact.notes);
-        
-        template.update(sql, param, holder);
+        return repo.save(contact);
+//        //final String sql = "SELECT func_add_contact AS contact_id FROM func_add_contact(:userAccountId, :firstName, '%s', '%s', '%s', '%s', '%s', '%s')";
+//        final String sql = "INSERT INTO contact(user_account_id, first_name, last_name, birthday, mobile_number, home_address, email_address, notes) " +
+//            "VALUES(:userAccountId, :firstName, :lastName, :birthday, :mobileNumber, :homeAddress, :emailAddress, :notes)";
+//
+//        KeyHolder holder = new GeneratedKeyHolder();
+//        SqlParameterSource param = new MapSqlParameterSource()
+//            .addValue("userAccountId", contact.userAccountId)
+//            .addValue("firstName", contact.firstName)
+//            .addValue("lastName", contact.lastName)
+//            .addValue("birthday", contact.birthday)
+//            .addValue("mobileNumber", contact.mobileNumber)
+//            .addValue("homeAddress", contact.homeAddress)
+//            .addValue("emailAddress", contact.emailAddress)
+//            .addValue("notes", contact.notes);
+//
+//        template.update(sql, param, holder);
     }
 
     
     @Override
-    public void updateContact(Contact contact)
+    public Contact updateContact(Contact contact)
     {
-        final String sql = "UPDATE contact " + 
-            "SET user_account_id=:userAccountId, first_name=:firstName, last_name=:lastName, birthday=:birthday, " +
-                "mobile_number=:mobileNumber, home_address=:homeAddress, email_address=:emailAddress, notes=:notes " +
-            "WHERE contact_id=:contactId";
-        
-        KeyHolder holder = new GeneratedKeyHolder();
-        SqlParameterSource param = new MapSqlParameterSource()
-            .addValue("contactId", contact.contactId)
-            .addValue("userAccountId", contact.userAccountId)
-            .addValue("firstName", contact.firstName)
-            .addValue("lastName", contact.lastName)
-            .addValue("birthday", contact.birthday)
-            .addValue("mobileNumber", contact.mobileNumber)
-            .addValue("homeAddress", contact.homeAddress)
-            .addValue("emailAddress", contact.emailAddress)
-            .addValue("notes", contact.notes);
-        
-        template.update(sql, param, holder);
+//        final String sql = "UPDATE contact " +
+//            "SET user_account_id=:userAccountId, first_name=:firstName, last_name=:lastName, birthday=:birthday, " +
+//                "mobile_number=:mobileNumber, home_address=:homeAddress, email_address=:emailAddress, notes=:notes " +
+//            "WHERE contact_id=:contactId";
+//
+//        KeyHolder holder = new GeneratedKeyHolder();
+//        SqlParameterSource param = new MapSqlParameterSource()
+//            .addValue("contactId", contact.contactId)
+//            .addValue("userAccountId", contact.userAccountId)
+//            .addValue("firstName", contact.firstName)
+//            .addValue("lastName", contact.lastName)
+//            .addValue("birthday", contact.birthday)
+//            .addValue("mobileNumber", contact.mobileNumber)
+//            .addValue("homeAddress", contact.homeAddress)
+//            .addValue("emailAddress", contact.emailAddress)
+//            .addValue("notes", contact.notes);
+//
+//        template.update(sql, param, holder);
+        Contact updated = repo.save(contact);
+
+        return updated;
     }
 
     // Insert new contact with JPA

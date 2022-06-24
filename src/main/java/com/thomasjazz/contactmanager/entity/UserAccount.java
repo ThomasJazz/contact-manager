@@ -13,8 +13,4 @@ public class UserAccount extends Card
     @Column(name = "user_account_id")
     @Id
     public int userAccountId;
-
-    @JsonProperty("contact_id")
-    @Column(name = "contact_id")
-    public int contactId;
 }

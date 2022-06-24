@@ -21,4 +21,9 @@ public class UserAccountServiceImpl implements UserAccountService
     {
         return userAccountDao.findAllUserContacts(id);
     }
+
+    public List<UserAccount> findAllUsers()
+    {
+        return userAccountDao.findAllUserAccounts();
+    }
 }

@@ -1,13 +1,14 @@
 package com.thomasjazz.contactmanager.mapper;
 
 import com.thomasjazz.contactmanager.entity.UserAccount;
-import com.thomasjazz.contactmanager.entity.UserAccount;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserAccountRowMapper
+public class UserAccountRowMapper implements RowMapper<UserAccount>
 {
+    @Override
     public UserAccount mapRow(ResultSet rs, int arg1) throws SQLException
     {
         UserAccount acc = new UserAccount();

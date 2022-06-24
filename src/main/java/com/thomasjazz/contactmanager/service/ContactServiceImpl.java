@@ -28,14 +28,14 @@ public class ContactServiceImpl implements ContactService
     }
 
     @Override
-    public void insertContact(Contact contact)
+    public Contact insertContact(Contact contact)
     {
-        contactDao.insertContact(contact);
+        return contactDao.insertContact(contact);
     }
 
     @Override
-    public void updateContact(Contact contact)
+    public Contact updateContact(Contact contact)
     {
-        contactDao.updateContact(contact);
+        return contactDao.updateContact(contact);
     }
 }

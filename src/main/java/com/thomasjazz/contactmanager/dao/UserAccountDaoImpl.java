@@ -3,6 +3,7 @@ package com.thomasjazz.contactmanager.dao;
 import com.thomasjazz.contactmanager.entity.Contact;
 import com.thomasjazz.contactmanager.entity.UserAccount;
 import com.thomasjazz.contactmanager.mapper.ContactRowMapper;
+import com.thomasjazz.contactmanager.mapper.UserAccountRowMapper;
 import com.thomasjazz.contactmanager.repository.ContactRepository;
 import com.thomasjazz.contactmanager.repository.UserAccountRepository;
 import org.springframework.beans.factory.BeanFactory;
@@ -31,6 +32,11 @@ public class UserAccountDaoImpl implements UserAccountDao
         this.contactRepo = contactRepo;
     }
 
+    public List<UserAccount> findAllUserAccounts()
+    {
+        final String sql = "SELECT * FROM user_account";
+        return template.query(sql, new UserAccountRowMapper());
+    }
     /**
      * @param userAccountId
      * @return

@@ -6,6 +6,6 @@ public interface ContactService
 {
     List<Contact> findAllContacts();
     List<Contact> findContactsForUser(int userAccountId);
-    void insertContact(Contact contact);
-    void updateContact(Contact contact);
+    Contact insertContact(Contact contact);
+    Contact updateContact(Contact contact);
 }
