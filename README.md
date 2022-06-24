@@ -1,4 +1,4 @@
-# super-mailer
+# contact-manager
 *NOTE*
 - *I am using this README as a notebook as I learn new things so a lot of it is not directly related to this project*
 - *This is not actually intended to be used by anyone; I just created this to learn the stack*
@@ -20,8 +20,8 @@
     - React (Maybe)
     
 ## What does the Super Mailer API do?
-- Allows users to manage small e-mail distribution lists
-- Users can schedule e-mails to be sent out to their distribution lists
+- Allows users to manage contact lists
+- Users can get, add, update contacts
 
 # Endpoints
 - `/add-user` *POST*
