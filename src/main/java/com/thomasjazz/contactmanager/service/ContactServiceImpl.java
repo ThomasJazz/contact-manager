@@ -13,9 +13,9 @@ public class ContactServiceImpl implements ContactService
     ContactDao contactDao;
 
     @Override
-    public List<Contact> findAll()
+    public List<Contact> findAllContacts()
     {
-        return contactDao.findAll();
+        return contactDao.findAllContacts();
     }
 
     @Override

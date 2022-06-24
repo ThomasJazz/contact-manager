@@ -36,6 +36,7 @@ class ApplicationConfig {
         builder.url("jdbc:postgresql://localhost:5432/super_mailer");
         builder.username("postgres");
         builder.password("superspring125!");
+
         return builder.build();
     }
 

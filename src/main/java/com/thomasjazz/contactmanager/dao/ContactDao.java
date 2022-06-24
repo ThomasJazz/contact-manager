@@ -8,7 +8,7 @@ import com.thomasjazz.contactmanager.entity.Contact;
 public interface ContactDao 
 {
     // JDBC methods
-    List<Contact> findAll();
+    List<Contact> findAllContacts();
     List<Contact> findContactsForUser(int userAccountId);
     void insertContact(Contact contact);
     void updateContact(Contact contact);

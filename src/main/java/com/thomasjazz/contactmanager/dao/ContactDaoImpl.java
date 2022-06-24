@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.thomasjazz.contactmanager.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -27,10 +28,9 @@ public class ContactDaoImpl implements ContactDao
     }
 
     @Override
-    public List<Contact> findAll()
+    public List<Contact> findAllContacts()
     {
-        List<Contact> res = template.query("SELECT * FROM contact", new ContactRowMapper());
-        return res;
+        return template.query("SELECT * FROM public.contact;", new ContactRowMapper());
     }
 
     @Override

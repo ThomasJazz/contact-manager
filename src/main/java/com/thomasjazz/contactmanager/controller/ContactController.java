@@ -23,7 +23,7 @@ public class ContactController
     public List<Contact> getAllContacts()
     {
         System.out.println("Executed getAllContacts");
-        return contactService.findAll();
+        return contactService.findAllContacts();
     }
 
     @PostMapping(value="/add")
