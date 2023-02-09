@@ -1,4 +1,4 @@
-package com.thomasjazz.library;
+package com.thomasjazz.contactmanager.helper;
 import java.util.*;
 import java.lang.reflect.*;
 import com.google.gson.Gson;

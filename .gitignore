@@ -50,7 +50,6 @@ gradle-app.setting
 
 ### Custom ###
 temp-env.txt
-src/main/resources/application.properties
 sql/WORKING QUERIES.sql
 *.class
 
